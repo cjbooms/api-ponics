@@ -16,6 +16,17 @@ data class ContainingExternalReference(
     val someExternalReference: ExternalObject? = null
 )
 
+data class ExternalObject(
+    @param:JsonProperty("another")
+    @get:JsonProperty("another")
+    @get:Valid
+    val another: ExternalObjectTwo? = null,
+    @param:JsonProperty("one_of")
+    @get:JsonProperty("one_of")
+    @get:Valid
+    val oneOf: ParentOneOf? = null
+)
+
 enum class ExternalObjectThreeEnum(
     @JsonValue
     val value: String
@@ -43,17 +54,6 @@ data class ExternalObjectTwo(
     @get:JsonProperty("list-others")
     @get:Valid
     val listOthers: List<ExternalObjectThree>? = null
-)
-
-data class ExternalObject(
-    @param:JsonProperty("another")
-    @get:JsonProperty("another")
-    @get:Valid
-    val another: ExternalObjectTwo? = null,
-    @param:JsonProperty("one_of")
-    @get:JsonProperty("one_of")
-    @get:Valid
-    val oneOf: ParentOneOf? = null
 )
 
 @JsonTypeInfo(
